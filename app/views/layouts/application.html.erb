@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Medstore</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body style="padding-top: 60px;">
+	<div class="navbar navbar-fixed-top" responsive:"true">
+    <div class="navbar-inner">
+      <div class="container" style="padding-right:350px;padding-bottom:10px;padding-top:10px;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/home">Medical Store</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><%= link_to "Browse Products", products_path %></li>
+             <li><%= link_to "Price List" %></li>
+          <li><%= link_to "Our Vendors" %></li>
+         <li><%= link_to "Contact Us" %></li>
+          <li><%= link_to "Cart" %></li>
+
+            <form class="navbar-search pull-left">
+  				<input type="text" class="search-query" placeholder="Search Products">
+			</form>
+          </ul>
+        </div>     
+      </div>
+    </div>
+  </div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+    </div>
+  </div>
+		<div class="row-fluid">
+      <div class="span2">
+          <h4>Hai welcome to store</h4>
+      </div>
+      <div class="span8">
+          <%= render_breadcrumbs %>
+          <%= yield %>
+      </div>
+      <div class="span2"><h4>Contact us </h4>
+
+
+        Rails developers can draw from a huge pool of libraries to build their applications. Dozens of options are available just for templating: do you use ERB, HAML, SASS, or do you prefer a JavaScript approach with Backbone.js or Knockout.js? The possibilities are endless, so we want to find out what our readers are using, or planning to use in the future.In a first step (RFP), we asked you for suggestions. We received many answers, and after asking about deployment and management, we now ask a second question about frontend. On the x-axis, you can show us what you’re using right now, or what you’ve moved away from and what you plan to adopt next. The y-axis indicates how valuable you think the specific technology or library is.Rails developers can draw from a huge pool of libraries to build their applications. Dozens of options are available just for templating: do you use ERB, HAML, SASS, or do you prefer a JavaScript approach with Backbone.js or Knockout.js? The possibilities are endless, so we want to find out what our readers are using, or planning to use in the future.In a first step (RFP), we asked you for suggestions. We received many answers, and after asking about deployment and management, we now ask a second question about frontend. On the x-axis, you can show us what you’re using right now, or what you’ve moved away from and what you plan to adopt next. The y-axis indicates how valuable you think the specific technology or library is.Rails developers can draw from a huge pool of libraries to build their applications. Dozens of options are available just for templating: do you use ERB, HAML, SASS, or do you prefer a JavaScript approach with Backbone.js or Knockout.js? The possibilities are endless, so we want to find out what our readers are using, or planning to use in the future.In a first step (RFP), we asked you for suggestions. We received many answers, and after asking about deployment and management, we now ask a second question about frontend. On the x-axis, you can show us what you’re using right now, or what you’ve moved away from and what you plan to adopt next. The y-axis indicates how valuable you think the specific technology or library is.Rails developers can draw from a huge pool of libraries to build their applications. Dozens of options are available just for templating: do you use ERB, HAML, SASS, or do you prefer a JavaScript approach with Backbone.js or Knockout.js? The possibilities are endless, so we want to find out what our readers are using, or planning to use in the future.In a first step (RFP), we asked you for suggestions. We received many answers, and after asking about deployment and management, we now ask a second question about frontend. On the x-axis, you can show us what you’re using right now, or what you’ve moved away from and what you plan to adopt next. The y-axis indicates how valuable you think the specific technology or library is.
+
+
+
+
+
+      </div>
+		</div>
+</div>
+</body>
+</html>
