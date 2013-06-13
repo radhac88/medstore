@@ -3,13 +3,13 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:product_name) %></th>
-      <th><%= model_class.human_attribute_name(:btch_no) %></th>
-      <th><%= model_class.human_attribute_name(:vendor) %></th>
-      <th><%= model_class.human_attribute_name(:mfd_on) %></th>
-      <th><%= model_class.human_attribute_name(:expired_on) %></th>
-      <th><%= model_class.human_attribute_name(:cost_price) %></th>
+      <%#<th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name("Name") %></th>
+      <th><%= model_class.human_attribute_name("Batch No") %></th>
+      <th><%= model_class.human_attribute_name("vendor id") %></th>
+      <th><%= model_class.human_attribute_name("Manufacture date") %></th>
+      <th><%= model_class.human_attribute_name("Expire date") %></th>
+      <th><%= model_class.human_attribute_name("Price") %></th>
      <%# <th><%= model_class.human_attribute_name(:created_at) %></th> 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +17,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.id %></td>
+        <%#<td><%= product.id %></td>
         <td><%= link_to product.product_name, product_path(product) %></td>
         <td><%= product.btch_no %></td>
         <td><%= product.vendor_id %></td>

@@ -5,8 +5,11 @@ class ProductsController < ApplicationController
   add_breadcrumb "New Product", "/products/new", only: [:new, :create]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
   add_breadcrumb "Product", "/products/edit", only: [:show]
+  require 'date'
   def home
     #render :layout => "home_layout"
+    @products=Product.all
+    @exproduct = Product.where("expired_on < ?",Date.today+30)
   end
   def index
     @products = Product.all

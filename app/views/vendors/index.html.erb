@@ -3,9 +3,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:vendor_name) %></th>
-      <th><%= model_class.human_attribute_name(:vendor_address) %></th>
+      <%#<th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name("Name") %></th>
+      <th><%= model_class.human_attribute_name("Address") %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -13,8 +13,8 @@
   <tbody>
     <% @vendors.each do |vendor| %>
       <tr>
-        <td><%= link_to vendor.id, vendor_path(vendor) %></td>
-        <td><%= vendor.vendor_name %></td>
+        <%#<td><%= link_to vendor.id, vendor_path(vendor) %></td>
+        <td><%= link_to vendor.vendor_name, vendor_path(vendor) %></td>
         <td><%= vendor.vendor_address %></td>
         <td><%=l vendor.created_at %></td>
         <td>

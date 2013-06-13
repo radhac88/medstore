@@ -23,11 +23,17 @@
     <div class="row-fluid">
       <div class="span4">
           <pre><b>Latest Products</b>
-          <p align="left">Etisbew comes with a decade of experience in understanding business challenges across domains and has harnessed the power of Information Technology to provide smart and innovative technology solutions. Etisbew has empowered many businesses globally with value added IT enabled business solutions...</p></pre>
+            <% @products.last(3).each do |f| %>
+            <li><%= f.product_name %></li>
+            <% end %>
+        </pre>
       </div>
       <div class="span4">
           <pre><b>About to Expire products</b>
-          <p>Etisbew comes with a decade of experience in understanding business challenges across domains and has harnessed the power of Information Technology to provide smart and innovative technology solutions. Etisbew has empowered many businesses globally with value added IT enabled business solutions...</p></pre>
+          <% @exproduct.each do |p| %>
+          <li><%= p.product_name %>&nbsp;<%= p.expired_on %></li>
+          <% end %>
+        </p></pre>
       </div>
       <div class="span4">
         <pre><b>Today's sale</b>
