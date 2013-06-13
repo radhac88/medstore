@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-  attr_accessible :batch_number, :cost_price, :expired_on, :manufactured_on, :name, :vendor_id
+  attr_accessible :btch_no, :cost_price, :expired_on, :mfd_on, :product_name, :vendor, :vendor_id
+  has_and_belongs_to_many :vendors
 end

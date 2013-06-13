@@ -1,15 +1,16 @@
 <%- model_class = @product.class -%>
+<%- model_class = @vendor.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @product.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:batch_number) %>:</strong></dt>
-  <dd><%= @product.batch_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:vendor_id) %>:</strong></dt>
-  <dd><%= @product.vendor_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:manufactured_on) %>:</strong></dt>
-  <dd><%= @product.manufactured_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:product_name) %>:</strong></dt>
+  <dd><%= @product.product_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:btch_no) %>:</strong></dt>
+  <dd><%= @product.btch_no %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
+  <dd><%= link_to @vendor.vendor_name, vendor_path(@vendor) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:mfd_on) %>:</strong></dt>
+  <dd><%= @product.mfd_on %></dd>
   <dt><strong><%= model_class.human_attribute_name(:expired_on) %>:</strong></dt>
   <dd><%= @product.expired_on %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cost_price) %>:</strong></dt>

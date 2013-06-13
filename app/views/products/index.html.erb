@@ -4,10 +4,10 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:batch_number) %></th>
-      <th><%= model_class.human_attribute_name(:vendor_id) %></th>
-      <th><%= model_class.human_attribute_name(:manufactured_on) %></th>
+      <th><%= model_class.human_attribute_name(:product_name) %></th>
+      <th><%= model_class.human_attribute_name(:btch_no) %></th>
+      <th><%= model_class.human_attribute_name(:vendor) %></th>
+      <th><%= model_class.human_attribute_name(:mfd_on) %></th>
       <th><%= model_class.human_attribute_name(:expired_on) %></th>
       <th><%= model_class.human_attribute_name(:cost_price) %></th>
      <%# <th><%= model_class.human_attribute_name(:created_at) %></th> 
@@ -17,11 +17,11 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
-        <td><%= product.name %></td>
-        <td><%= product.batch_number %></td>
+        <td><%= product.id %></td>
+        <td><%= link_to product.product_name, product_path(product) %></td>
+        <td><%= product.btch_no %></td>
         <td><%= product.vendor_id %></td>
-        <td><%= product.manufactured_on %></td>
+        <td><%= product.mfd_on %></td>
         <td><%= product.expired_on %></td>
         <td><%= product.cost_price %></td>
         <%#<td><%=l product.created_at %></td>

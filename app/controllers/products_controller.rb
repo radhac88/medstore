@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
-  add_breadcrumb "Browse products", "/products";
+  add_breadcrumb "Browse products", "/products", except: [:home]
   add_breadcrumb "New Product", "/products/new", only: [:new, :create]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
   add_breadcrumb "Product", "/products/edit", only: [:show]
+  def home
+    #render :layout => "home_layout"
+  end
   def index
     @products = Product.all
+    @vendors = Vendor.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +22,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @vendor = Vendor.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

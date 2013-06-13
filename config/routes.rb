@@ -1,4 +1,7 @@
 Medstore::Application.routes.draw do
+  resources :vendors
+
+
   resources :products
   root :to=>'products#home'
   match 'home' => 'products#home', :as => 'home'

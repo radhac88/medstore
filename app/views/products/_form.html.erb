@@ -1,26 +1,26 @@
 <%= form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label :product_name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      <%= f.text_field :product_name, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :batch_number, :class => 'control-label' %>
+    <%= f.label :btch_no, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :batch_number, :class => 'text_field' %>
+      <%= f.text_field :btch_no, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :vendor_id, :class => 'control-label' %>
+    <%= f.label :vendor, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :vendor_id, :class => 'number_field' %>
+      <%= f.collection_select :vendor_id,Vendor.order(:vendor_name),:id,:vendor_name, :class => 'collection_select' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :manufactured_on, :class => 'control-label' %>
+    <%= f.label :mfd_on, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :manufactured_on, :class => 'date_select' %>
+      <%= f.date_select :mfd_on, :class => 'date_select' %>
     </div>
   </div>
   <div class="control-group">
