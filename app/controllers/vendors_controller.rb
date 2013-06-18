@@ -1,6 +1,12 @@
 class VendorsController < ApplicationController
   # GET /vendors
   # GET /vendors.json
+
+  add_breadcrumb "Vendors", "/vendors", except: [:home]
+  add_breadcrumb "New Vendor", "/vendors/new", only: [:new, :create]
+  add_breadcrumb "Edit vendor", "/vendors/edit", only: [:edit]
+  
+
   def index
     @vendors = Vendor.all
 
@@ -14,7 +20,7 @@ class VendorsController < ApplicationController
   # GET /vendors/1.json
   def show
     @vendor = Vendor.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @vendor }
