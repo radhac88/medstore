@@ -15,10 +15,6 @@ class ProductsController < ApplicationController
     @products = Product.all
     @vendors = Vendor.all
 
-    @productss = Product.where(params[:id])
-      @productss.delete(:all)
-
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
@@ -29,8 +25,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @vendor =Vendor.all
-    #@vendors = Vendor.find(params[:id])
+    @vendor = Vendor.find(params[:id])
+    @vendors= Vendor.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +38,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @product = Product.new
-    @vendor = Vendor.all
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,7 +48,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
- #   @vendor = Vendor.all
+ 
     @product = Product.find(params[:id])
   end
 
@@ -60,7 +56,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(params[:product])
-#    @vendor = Vendor.all
+
 
     respond_to do |format|
       if @product.save
@@ -77,7 +73,7 @@ class ProductsController < ApplicationController
   # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
-  #  @vendor = Vendor.all
+  
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
@@ -102,10 +98,16 @@ class ProductsController < ApplicationController
     end
     end
     def delete_product
-      #@products = Product.where(params[:ids])
-      @products = Product.all
-      @products.delete(:id)
-    
+     #Product.destroy(params[:product])
+     #@product = Product.where(params[:id])
+     #@product = Product.all
+     #@product.delete(params[:product_id])
+
+     @products = Product.find(params[:product_ids])
+     @products.each do |product|
+      product.destroy
+    end
+
       respond_to do |format|
         format.html {redirect_to products_url}
       end

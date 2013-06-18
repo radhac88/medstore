@@ -11,14 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617083643) do
+ActiveRecord::Schema.define(:version => 20130618091603) do
 
   create_table "products", :force => true do |t|
     t.string  "product_name"
     t.string  "btch_no"
+    t.integer "vendor_id"
     t.date    "mfd_on"
     t.date    "expired_on"
     t.float   "cost_price"
+  end
+
+  create_table "products_vendors", :id => false, :force => true do |t|
+    t.integer "product_id"
     t.integer "vendor_id"
   end
 
@@ -27,9 +32,6 @@ ActiveRecord::Schema.define(:version => 20130617083643) do
     t.text     "vendor_address"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.integer  "product_id"
   end
-
-  add_index "vendors", ["product_id"], :name => "index_vendors_on_product_id"
 
 end
