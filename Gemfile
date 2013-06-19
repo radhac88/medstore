@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'mysql2'
 gem 'execjs'
 gem 'simple_form'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,6 +24,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'kaminari'
+#gem "will_paginate", "~> 3.0.4"
+# gem 'will_paginate-bootstrap'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

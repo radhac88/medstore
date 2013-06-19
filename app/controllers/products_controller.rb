@@ -13,7 +13,10 @@ class ProductsController < ApplicationController
   end
   def index
     @products = Product.all
+    @products = Product.order("id").page(params[:page]).per(3)
     @vendors = Vendor.all
+
+
 
     respond_to do |format|
       format.html # index.html.erb
