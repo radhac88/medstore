@@ -1,0 +1,5 @@
+<%# Search results display........................................%>
+Search results:<br/>
+<% @search_results.each do |sr| %>
+<%= link_to sr.product_name, product_path(sr) %><br />
+<% end %>

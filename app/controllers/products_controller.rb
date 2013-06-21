@@ -2,21 +2,31 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   add_breadcrumb "Browse products", "/products", except: [:home]
-  add_breadcrumb "New Product", "/products/new", only: [:new, :create]
+  add_breadcrumb "New Product", "/products/new", only: [:new, :create, :show]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
   
   require 'date'
   def home
-    #render :layout => "home_layout"
+    a = Date.today
+    
     @products=Product.all
-    @exproduct = Product.where("expired_on < ?",Date.today+30)
+    
+    @exproduct = Product.where("expired_on < ?", a+30)
+    
+    #@rd = params[:product] && params[:product][:expired_on]
+    #@remain_days = params[:product][:expired_on]
+  
+
   end
   def index
     @products = Product.all
-    @products = Product.order("id").page(params[:page]).per(3)
+    @products = Product.order("id").page(params[:page]).per(5)
     @vendors = Vendor.all
+    #@vendors = Vendor.find(params[:id])
 
-
+    # q = Product.where(params[:product_name])
+    # #q = params[:product][:product_name]
+    #   @search_results = Product.find(:all, :conditions => ['product_name LIKE ?', "%#{q}%"]) 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,12 +34,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search_results
+
+    q = params[:product][:product_name]
+    @search_results = Product.find(:all, :conditions => ['product_name LIKE ?', "%#{q}%"])
+  
+  end
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @vendor = Vendor.all
-    #@vendor = Vendor.find(params[:id])
+    @vendors = Vendor.all
+    @vendors = Vendor.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -107,10 +123,11 @@ class ProductsController < ApplicationController
      #@product.delete(params[:product_id])
 
      @products = Product.find(params[:product_ids])
-     @products.each do |product|
-      product.destroy
-    end
 
+     @products.each do |product|    
+      product.destroy
+      flash[:alert] = "Selected products deleted successfully.."
+    end
       respond_to do |format|
         format.html {redirect_to products_url}
       end

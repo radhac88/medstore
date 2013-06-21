@@ -1,3 +1,6 @@
+
+<%# Images carousel display................................................... %>
+
 <div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
     <p data-target="#myCarousel" data-slide-to="0" class="active"></p>
@@ -20,24 +23,39 @@
     <div class="span12">
     </div>
   </div>
+
+<%# Latest products............................................................ %>
+
     <div class="row-fluid">
-      <div class="span4">
-          <pre><b>Latest Products</b>
-            <% @products.last(3).each do |f| %>
-            <li><%= f.product_name %></li>
+      <div class="span3">
+          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Latest Products</b>
+            <table>
+            <% @products.last(5).reverse.each do |f| %>
+           <tr><td><%= f.product_name %></td></tr>
             <% end %>
+        </table>
         </pre>
       </div>
-      <div class="span4">
-          <pre><b>About to Expire products</b>
-          <% @exproduct.each do |p| %>
-          <li><%= p.product_name %>&nbsp;<%= p.expired_on %></li>
+
+<%# About to expire products.....................................................%>
+
+      <div class="span5">
+          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
+          <table>
+          <% @exproduct.last(5).each do |p| %>
+         <tr><td><%= p.product_name %></td>
+        <td style="padding-left:100px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
+          <%= @rd %>
           <% end %>
-        </p></pre>
+      </table>
+      </pre>
       </div>
+
+<%# Today's sale..................................................................%>
+
       <div class="span4">
-        <pre><b>Today's sale</b>
-        <p>Etisbew comes with a decade of experience in understanding business challenges across domains and has harnessed the power of Information Technology to provide smart and innovative technology solutions. Etisbew has empowered many businesses globally with value added IT enabled business solutions...</p></pre>
+        <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Today's sale</b>
+        <p>Etisbew comes with a decade of experience in understanding business challenges across domains and has harnessed the power of Information Technology to provide smart and innovative technology solutions. Etisbew has empowered many businesses globally...</p></pre>
       </div>
     </div>
 </div>

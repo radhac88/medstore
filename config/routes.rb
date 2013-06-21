@@ -1,11 +1,15 @@
 Medstore::Application.routes.draw do
   resources :vendors
-  resources :products do
-    resources :vendors
-  end
+  resources :products
+  # resources :products do
+  #   resources :vendors
+  # end
   root :to=>'products#home'
   match 'home' => 'products#home', :as => 'home'
   match 'delete_product' => 'products#delete_product', :as => 'delete_product', :via => :delete
+   #match 'search_results' => 'products#search_results', :as => 'search_results', :via => :post
+  match 'search_results' => 'products#search_results', :as => 'search_results'
+
   #match ':controller(/:action(/:id))(.:format)'
   # The priority is based upon order of creation:
   # first created -> highest priority.
