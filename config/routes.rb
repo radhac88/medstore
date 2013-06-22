@@ -9,6 +9,7 @@ Medstore::Application.routes.draw do
   match 'delete_product' => 'products#delete_product', :as => 'delete_product', :via => :delete
    #match 'search_results' => 'products#search_results', :as => 'search_results', :via => :post
   match 'search_results' => 'products#search_results', :as => 'search_results'
+  match 'reports' => 'products#reports', :as => 'reports'
 
   #match ':controller(/:action(/:id))(.:format)'
   # The priority is based upon order of creation:

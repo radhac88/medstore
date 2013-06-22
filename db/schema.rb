@@ -14,17 +14,21 @@
 ActiveRecord::Schema.define(:version => 20130613055715) do
 
   create_table "products", :force => true do |t|
-    t.string  "product_name"
-    t.string  "btch_no"
-    t.integer "vendor_id"
-    t.date    "mfd_on"
-    t.date    "expired_on"
-    t.float   "cost_price"
+    t.string   "product_name"
+    t.string   "btch_no"
+    t.integer  "vendor_id"
+    t.date     "mfd_on"
+    t.date     "expired_on"
+    t.float    "cost_price"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "vendors", :force => true do |t|
-    t.string "vendor_name"
-    t.text   "vendor_address"
+    t.string   "vendor_name"
+    t.text     "vendor_address"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

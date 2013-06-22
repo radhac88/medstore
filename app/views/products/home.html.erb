@@ -31,9 +31,11 @@
           <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Latest Products</b>
             <table>
             <% @products.last(5).reverse.each do |f| %>
-           <tr><td><%= f.product_name %></td></tr>
+           <tr><td style="padding-right:0px;"><%= f.product_name %></td>
+           </tr>
             <% end %>
         </table>
+        <b style="padding-left:70px;"><%= link_to 'more...',reports_path() %></b>
         </pre>
       </div>
 
@@ -43,11 +45,11 @@
           <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
           <table>
           <% @exproduct.last(5).each do |p| %>
-         <tr><td><%= p.product_name %></td>
-        <td style="padding-left:100px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
-          <%= @rd %>
+         <tr><td align="left"><%= p.product_name %></td>
+        <td style="padding-left:160px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
           <% end %>
       </table>
+      <b style="padding-left:240px;"><%= link_to 'more...',reports_path() %></b>
       </pre>
       </div>
 
@@ -55,7 +57,7 @@
 
       <div class="span4">
         <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Today's sale</b>
-        <p>Etisbew comes with a decade of experience in understanding business challenges across domains and has harnessed the power of Information Technology to provide smart and innovative technology solutions. Etisbew has empowered many businesses globally...</p></pre>
+        <p>Site is under construction.. Sales not started yet.. <br/>Please visit later..</p></pre>
       </div>
     </div>
 </div>

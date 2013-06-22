@@ -1,0 +1,22 @@
+<h4>Stock Report:</h4><br />
+<div style="width:100%;">
+<div style="height:300px;width:30%;float:left;">
+<h6><em>Available Products: ( <%= @products.count %> )</em></h6><br/>
+<% @products.each do |product| %>
+	<li><%= link_to product.product_name, product_path(product) %></li><br />
+	<% end %>
+</div>
+<div style="height:300px;width:40%;float:left;">
+	<h6><em>Latest products:</em></h6><br/>
+	<% @products.last(10).reverse.each do |product| %>
+		<li><%= link_to product.product_name, product_path(product)  %> &nbsp; <%= product.created_at %></li><br />
+		<% end %>
+</div>
+<div style="height:300px;width:30%;float:right;">
+	<h6><em>About Expire products: ( <%= @exproduct.count %> )</em></h6><br/>
+	<% @exproduct.last(5).each do |p| %>
+		<li><%= link_to p.product_name, product_path(p)  %>&nbsp;(<%= (p.expired_on-Date.today).to_i %>-days)</li><br />
+		<% end %>
+</div>
+
+</div>

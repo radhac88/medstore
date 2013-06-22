@@ -1,11 +1,19 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
-  add_breadcrumb "Browse products", "/products", except: [:home]
+  add_breadcrumb "Browse products", "/products", except: [:home,:reports]
   add_breadcrumb "New Product", "/products/new", only: [:new, :create, :show]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
+  add_breadcrumb "Search Results", "/products/search_results", only: [:search_results]
   
   require 'date'
+  def reports
+    a = Date.today
+    @products = Product.all
+    @exproduct = Product.where("expired_on < ?", a+30)
+  end
+    
+
   def home
     a = Date.today
     
@@ -43,6 +51,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    
     @product = Product.find(params[:id])
     @vendors = Vendor.all
     @vendors = Vendor.find(params[:id])
@@ -74,9 +83,10 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
-
-
+    #@product = Product.new(params[:product])
+    #@product = Product.create(vendor_id: @vendor.id)
+    @vendor = Vendor.all
+    @product = @vendor.products.create()
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

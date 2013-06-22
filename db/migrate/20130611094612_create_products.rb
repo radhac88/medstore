@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration
       t.date :expired_on
       t.float :cost_price
 
-     # t.timestamps
+      t.timestamps
     end
   end
 end
