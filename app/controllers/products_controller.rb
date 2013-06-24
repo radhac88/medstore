@@ -53,9 +53,9 @@ class ProductsController < ApplicationController
   def show
     
     @product = Product.find(params[:id])
-    @vendors = Vendor.all
-    @vendors = Vendor.find(params[:id])
-
+    @vendors = @product.vendor(:all)
+    #@vendors = Vendor.find(params[:id])
+    #@vendors = Vendor.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
@@ -83,10 +83,10 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    #@product = Product.new(params[:product])
+    @product = Product.new(params[:product])
     #@product = Product.create(vendor_id: @vendor.id)
-    @vendor = Vendor.all
-    @product = @vendor.products.create()
+    #@vendor = Vendor.all
+    #@product = @vendor.products.create(product_date :Time.now, vendor_id: @vendor.id)
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }

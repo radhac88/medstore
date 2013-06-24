@@ -9,7 +9,7 @@ class VendorsController < ApplicationController
 
   def index
     @vendors = Vendor.all
-    @vendors = Vendor.order("vendor_name").page(params[:page]).per(7)
+    @vendors = Vendor.order("vendor_name").page(params[:page]).per(4)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @vendors }
@@ -19,6 +19,7 @@ class VendorsController < ApplicationController
   # GET /vendors/1
   # GET /vendors/1.json
   def show
+    @products = Product.all
     @vendor = Vendor.find(params[:id])
     #@vendor = Vendor.all
     

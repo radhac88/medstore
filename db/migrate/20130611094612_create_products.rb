@@ -7,8 +7,10 @@ class CreateProducts < ActiveRecord::Migration
       t.date :mfd_on
       t.date :expired_on
       t.float :cost_price
+      t.references :vendor
 
       t.timestamps
     end
+    add_index :products, :vendor_id
   end
 end

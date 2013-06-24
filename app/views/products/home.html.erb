@@ -28,10 +28,10 @@
 
     <div class="row-fluid">
       <div class="span3">
-          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Latest Products</b>
+          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Latest products</b>
             <table>
             <% @products.last(5).reverse.each do |f| %>
-           <tr><td style="padding-right:0px;"><%= f.product_name %></td>
+           <tr><td style="padding-right:0px;"><%= link_to f.product_name, products_path(f) %></td>
            </tr>
             <% end %>
         </table>
@@ -46,7 +46,7 @@
           <table>
           <% @exproduct.last(5).each do |p| %>
          <tr><td align="left"><%= p.product_name %></td>
-        <td style="padding-left:160px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
+        <td style="padding-left:130px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
           <% end %>
       </table>
       <b style="padding-left:240px;"><%= link_to 'more...',reports_path() %></b>

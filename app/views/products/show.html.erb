@@ -1,25 +1,17 @@
-
-<%- model_class = @product.class -%>
-<%#<%- model_class = @vendor.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:product_name) %>:</strong></dt>
-  <dd><%= @product.product_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:btch_no) %>:</strong></dt>
-  <dd><%= @product.btch_no %></dd>
- 
-  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
-  <dd><%= link_to @product.vendor_id, vendor_path(@product) %></dd>
- 
-  <dt><strong><%= model_class.human_attribute_name(:mfd_on) %>:</strong></dt>
-  <dd><%= @product.mfd_on %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:expired_on) %>:</strong></dt>
-  <dd><%= @product.expired_on %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cost_price) %>:</strong></dt>
-  <dd><%= @product.cost_price %></dd>
-</dl>
-
+<table>
+  <tr><td><b>Product Name:  &nbsp; </b></td>
+<td><%= @product.product_name %></td></tr>
+<tr><td><b>Batch Number:  &nbsp; </b></td>
+<td><%= @product.btch_no %></td>
+<tr><td><b>Vendor Name:  &nbsp; </b></td>
+<td><%= link_to @vendors.vendor_name, vendor_path(@vendors) %></td>
+<tr><td><b>Manufactured:  &nbsp; </b></td>
+<td><%= @product.mfd_on %></td>
+<tr><td><b>Expired on:  &nbsp;</b> </td>
+<td><%= @product.expired_on %></td>
+<tr><td><b>Cost Price:  &nbsp; </b></td>
+<td><%= @product.cost_price %></td>
+</table>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn'  %>

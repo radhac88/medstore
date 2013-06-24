@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130613055715) do
     t.datetime "updated_at",   :null => false
   end
 
+  add_index "products", ["vendor_id"], :name => "index_products_on_vendor_id"
+
   create_table "vendors", :force => true do |t|
     t.string   "vendor_name"
     t.text     "vendor_address"

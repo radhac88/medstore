@@ -1,9 +1,9 @@
 Medstore::Application.routes.draw do
   resources :vendors
   resources :products
-  # resources :products do
-  #   resources :vendors
-  # end
+   # resources :products do
+   #   resources :vendors
+   # end
   root :to=>'products#home'
   match 'home' => 'products#home', :as => 'home'
   match 'delete_product' => 'products#delete_product', :as => 'delete_product', :via => :delete
