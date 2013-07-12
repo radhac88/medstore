@@ -1,5 +1,5 @@
 <%# Search results display........................................%>
-Search results:<br/>
+<b>Search results:</b><br/><br/>
 <% @search_results.each do |sr| %>
-<%= link_to sr.product_name, product_path(sr) %><br />
+<li><%= link_to sr.product_name, product_path(sr) %></li><br />
 <% end %>

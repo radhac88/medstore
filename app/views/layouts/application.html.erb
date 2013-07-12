@@ -11,7 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
-<body style="padding-top: 60px; background-color:wheat; ">
+<body style="padding-top: 60px; background-color:#ffffff">
+  
 	<div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -22,13 +23,24 @@
         </a>
         <a class="brand" href="/home">Home</a>
         <div class="nav-collapse collapse">
-          <ul class="nav">
+          <ul class="nav nav-tabs">
+            <% if current_user %>
             <li><%= link_to "Browse Products", products_path %></li>
              <li><%= link_to "Orders" %></li>
           <li><%= link_to "Vendors", vendors_path %></li>
          <li><%= link_to "Report", reports_path %></li>
-          <li>
-          </ul>
+       </ul>
+       <ul class="nav nav-tabs pull-right">
+          <%#<% if current_user %>
+              <li style="padding-top: 11px;">Logged in as: &nbsp; <%= current_user.email %></li>
+              <li><%= link_to "LogOut", log_out_path %></li>
+              <% else %>
+              </ul>
+          <ul class="nav nav-tabs pull-right">
+              <li><%= link_to "Sign Up", sign_up_path %></li>
+              <li><%= link_to "Log In", log_in_path %></li>
+          <% end %>
+        </ul>
         </div> 
       </div>
     </div>
@@ -52,34 +64,40 @@
             <li>Kolkata</li><br />
             
       </div>
-      <div class="span8">
-          <%= render_breadcrumbs %>
+    <div class="span8">
+
+      <% flash.each do |name,msg| %>
+      <%= content_tag :div,msg, :id => "flash#{name}" %>
+      <% end %>
+ 
+      <%= render_breadcrumbs %>   
+
           <%= yield %>
       </div>
       <div class="span2">
-        <h4 style="font-family:'tempus sans itc';color:indigo;">Contact us</h4>
-        Hyderabad<br/>
+     <h4 style="font-family:'tempus sans itc';color:indigo;">Contact us</h4>
+<br/>Hyderabad<br/>
 33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08830
+Suite 600, Iselin, NJ 08878
 <br /><br />
-Phone: 1-732-603-5299<br />
-Fax: 1-800-603-6613<br />
-E-mail: usasales@etisbew.com<br /><br />
+Phone: 1-732-653-5222<br />
+Fax: 1-800-603-6677<br />
+E-mail: usasales@rails.com<br /><br />
 <br />Banglore<br/>
 33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08830
+Suite 600, Iselin, NJ 08845
 <br /><br />
-Phone: 1-732-603-5299<br />
-Fax: 1-800-603-6613<br />
-E-mail: usasales@etisbew.com<br /><br />
+Phone: 1-732-683-5277<br />
+Fax: 1-800-683-6666<br />
+E-mail: usasales@rails.com<br /><br />
 <br />Delhi<br/>
 33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08830
+Suite 600, Iselin, NJ 08882
 <br /><br />
-Phone: 1-732-603-5299<br />
-Fax: 1-800-603-6613<br />
-E-mail: usasales@etisbew.com<br /><br />
-      </div>
+Phone: 1-732-683-5599<br />
+Fax: 1-800-603-6697<br />
+E-mail: usasales@rails.com<br /><br />
+     </div> 
     </div>
 </div>
 </body>

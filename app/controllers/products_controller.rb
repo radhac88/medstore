@@ -1,12 +1,17 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
-  add_breadcrumb "Browse products", "/products", except: [:home,:reports]
+  #add_breadcrumb "Home", "/products/home"
+  http_basic_authenticate_with :name=>"admin", :password=>"admin"
+  add_breadcrumb "Browse products", "/products", except: [:home,:reports,:welcome]
   add_breadcrumb "New Product", "/products/new", only: [:new, :create, :show]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
-  add_breadcrumb "Search Results", "/products/search_results", only: [:search_results]
+ # add_breadcrumb "Search Results", "/products/search_results", only: [:search_results]
+
   
   require 'date'
+  def welcome
+  end
   def reports
     a = Date.today
     @products = Product.all
@@ -124,6 +129,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+      format.js { render :layout => false }
     end
     end
     def delete_product

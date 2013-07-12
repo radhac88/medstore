@@ -27,37 +27,37 @@
 <%# Latest products............................................................ %>
 
     <div class="row-fluid">
-      <div class="span3">
-          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Latest products</b>
+      <div class="span4">
+          <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Latest products</b>
             <table>
             <% @products.last(5).reverse.each do |f| %>
-           <tr><td style="padding-right:0px;"><%= link_to f.product_name, products_path(f) %></td>
+           <tr><td style="padding-right:0px"><%= f.product_name %></td>
            </tr>
             <% end %>
         </table>
-        <b style="padding-left:70px;"><%= link_to 'more...',reports_path() %></b>
+        <b style="padding-left:140px;"><%= link_to 'more...',reports_path() %></b>
         </pre>
       </div>
 
 <%# About to expire products.....................................................%>
 
       <div class="span5">
-          <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
+          <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
           <table>
           <% @exproduct.last(5).each do |p| %>
          <tr><td align="left"><%= p.product_name %></td>
-        <td style="padding-left:130px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
+        <td style="padding-left:40px;" align="right"><%= (p.expired_on-Date.today).to_i %>-days</td><tr/>
           <% end %>
       </table>
-      <b style="padding-left:240px;"><%= link_to 'more...',reports_path() %></b>
+      <b style="padding-left:240px;"><%= link_to 'more..',reports_path() %></b>
       </pre>
       </div>
 
 <%# Today's sale..................................................................%>
 
-      <div class="span4">
-        <pre style="background-color:wheat;"><b style="font-family:'tempus sans itc';color:indigo;">Today's sale</b>
-        <p>Site is under construction.. Sales not started yet.. <br/>Please visit later..</p></pre>
+      <div class="span3">
+        <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Today's sale                                                                                                                                                               </b>
+        <p><em>Sales not started yet.. <br/>Please visit later..</em></p></pre>
       </div>
     </div>
 </div>
