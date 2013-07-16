@@ -1,5 +1,13 @@
 Medstore::Application.routes.draw do
   
+  resources :line_items
+
+
+  resources :carts
+
+
+  get "store/index"
+
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_out" => "sessions#destroy"
@@ -10,7 +18,8 @@ Medstore::Application.routes.draw do
    # resources :products do
    #   resources :vendors
    # end
-  root :to=>'products#home'
+  #root :to=>'products#home'
+  root :to=>'store#index'
   match 'home' => 'products#home', :as => 'home'
   match 'delete_product' => 'products#delete_product', :as => 'delete_product', :via => :delete
    #match 'search_results' => 'products#search_results', :as => 'search_results', :via => :post

@@ -2,6 +2,48 @@
 <html>
 <head>
   <title>Medstore</title>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  $("#hyd").click(function(){
+    $("#hyda").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#che").click(function(){
+    $("#chea").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#bang").click(function(){
+    $("#banga").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#mum").click(function(){
+    $("#muma").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#pun").click(function(){
+    $("#puna").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#kol").click(function(){
+    $("#kola").slideToggle("slow");
+  });
+});
+$(document).ready(function(){
+  $("#del").click(function(){
+    $("#dela").slideToggle("slow");
+  });
+});
+</script>
+
+
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -10,6 +52,29 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+  <style type="text/css"> 
+#hyd,#hyda,#del,#dela,#bang,#banga,#mum,#muma,#kol,#kola,#pun,#puna,#che,#chea
+{
+padding:5px;
+text-align:center;
+background-color:#e5eecc;
+border:solid 1px #c3c3c3;
+}
+#hyda,#dela,#banga,#muma,#kola,#puna,#chea
+{
+padding:10px;
+display:none;
+}
+</style>
+
+
+
+
+
+
+
 </head>
 <body style="padding-top: 60px; background-color:#ffffff">
   
@@ -21,10 +86,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
+        <% if current_user %>
         <a class="brand" href="/home">Home</a>
         <div class="nav-collapse collapse">
           <ul class="nav nav-tabs">
-            <% if current_user %>
+            
             <li><%= link_to "Browse Products", products_path %></li>
              <li><%= link_to "Orders" %></li>
           <li><%= link_to "Vendors", vendors_path %></li>
@@ -33,7 +99,7 @@
        <ul class="nav nav-tabs pull-right">
           <%#<% if current_user %>
               <li style="padding-top: 11px;">Logged in as: &nbsp; <%= current_user.email %></li>
-              <li><%= link_to "LogOut", log_out_path %></li>
+              <li><%= link_to "Logout", log_out_path %></li>
               <% else %>
               </ul>
           <ul class="nav nav-tabs pull-right">
@@ -55,48 +121,34 @@
     <div class="row-fluid">
       <div class="span2">
           <h4 style="font-family:'tempus sans itc';color:indigo;">Store Locations</h4><br />
-            <li>Hyderabd</li><br />
-            <li>Delhi</li><br />
-            <li>Banglore</li><br />
-            <li>Chennai</li><br />
-            <li>Mumbai</li><br />
-            <li>Pune</li><br />
-            <li>Kolkata</li><br />
+            <div id="hyd">Hyderabd</div><br />
+            <div id="hyda">D.No 12-3-453<br/>KPHB, Hyd<br/>Phone: 040-273827</div>
+            <div id="del">Delhi</div><br />
+            <div id="dela">D.No 12-3-453<br/>DHEJ, Delhi<br/>Phone: 040-273827</div>
+            <div id="bang">Banglore</div><br />
+            <div id="banga">D.No 12-3-453<br/>FBBF, Banglore<br/>Phone: 040-273827</div>
+            <div id="che">Chennai</div><br />
+            <div id="chea">D.No 12-3-453<br/>CJSI, Chennai<br/>Phone: 040-273827</div>
+            <div id="mum">Mumbai</div><br />
+            <div id="muma">D.No 12-3-453<br/>MDIW, Mumbai<br/>Phone: 040-273827</div>
+            <div id="pun">Pune</div><br />
+            <div id="puna">D.No 12-3-453<br/>PEHD, Pune<br/>Phone: 040-273827</div>
+            <div id="kol">Kolkata</div><br />
+            <div id="kola">D.No 12-3-453<br/>KAKD, Kolkata<br/>Phone: 040-273827</div>
             
       </div>
     <div class="span8">
 
-      <% flash.each do |name,msg| %>
-      <%= content_tag :div,msg, :id => "flash#{name}" %>
-      <% end %>
+      <%#<% flash.each do |name,msg| %>
+      <%#<%= content_tag :div,msg, :id => "flash#{name}" %>
+      <%#<% end %>
  
       <%= render_breadcrumbs %>   
 
           <%= yield %>
       </div>
       <div class="span2">
-     <h4 style="font-family:'tempus sans itc';color:indigo;">Contact us</h4>
-<br/>Hyderabad<br/>
-33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08878
-<br /><br />
-Phone: 1-732-653-5222<br />
-Fax: 1-800-603-6677<br />
-E-mail: usasales@rails.com<br /><br />
-<br />Banglore<br/>
-33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08845
-<br /><br />
-Phone: 1-732-683-5277<br />
-Fax: 1-800-683-6666<br />
-E-mail: usasales@rails.com<br /><br />
-<br />Delhi<br/>
-33 Wood Avenue South<br />
-Suite 600, Iselin, NJ 08882
-<br /><br />
-Phone: 1-732-683-5599<br />
-Fax: 1-800-603-6697<br />
-E-mail: usasales@rails.com<br /><br />
+     
      </div> 
     </div>
 </div>

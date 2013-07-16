@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h3>Your medicine cart</h3>
+<ul>
+	<% @cart.line_items.each do |item| %>
+		<li><%= item.product.product_name %></li>
+	<% end %>
+
+</ul>
+
+
+<%= link_to 'Back', root_url %>
